@@ -363,21 +363,21 @@ export default function WISERApp() {
               <td>${invoiceFields.attySupportHrs || ""}</td>
               <td>${Math.round(calculateCategory("attySup") * (Number.parseFloat(invoiceFields.attySupportHrs) || 0)) || ""}</td>
               <td>$${fixedRates.attySupport.toFixed(2)}</td>
-              <td>$${Math.round((Number.parseFloat(invoiceFields.attySupportHrs) || 0) * fixedRates.attySupport) || ""}</td>
+              <td>$${((Number.parseFloat(invoiceFields.attySupportHrs) || 0) * fixedRates.attySupport).toFixed(2) || ""}</td>
             </tr>
             <tr>
               <td>Customer Service</td>
               <td>${invoiceFields.cServiceHrs || ""}</td>
               <td>${Math.round(calculateCategory("cService") * (Number.parseFloat(invoiceFields.cServiceHrs) || 0)) || ""}</td>
               <td>$${fixedRates.cService.toFixed(2)}</td>
-              <td>$${Math.round((Number.parseFloat(invoiceFields.cServiceHrs) || 0) * fixedRates.cService) || ""}</td>
+              <td>$${((Number.parseFloat(invoiceFields.cServiceHrs) || 0) * fixedRates.cService).toFixed(2) || ""}</td>
             </tr>
             <tr>
               <td>Customer Support</td>
               <td>${invoiceFields.cSupportHrs || ""}</td>
               <td>${Math.round(calculateCategory("cSupport") * (Number.parseFloat(invoiceFields.cSupportHrs) || 0)) || ""}</td>
               <td>$${fixedRates.cSupport.toFixed(2)}</td>
-              <td>$${Math.round((Number.parseFloat(invoiceFields.cSupportHrs) || 0) * fixedRates.cSupport) || ""}</td>
+              <td>$${((Number.parseFloat(invoiceFields.cSupportHrs) || 0) * fixedRates.cSupport).toFixed(2) || ""}</td>
             </tr>
             <tr>
               <td></td>
@@ -394,28 +394,28 @@ export default function WISERApp() {
               <td>${invoiceFields.chatEmailHrs || ""}</td>
               <td>${Math.round(calculateCategory("attySup") * (Number.parseFloat(invoiceFields.chatEmailHrs) || 0)) || ""}</td>
               <td>$${fixedRates.chatEmail.toFixed(2)}</td>
-              <td>$${Math.round((Number.parseFloat(invoiceFields.chatEmailHrs) || 0) * fixedRates.chatEmail) || ""}</td>
+              <td>$${((Number.parseFloat(invoiceFields.chatEmailHrs) || 0) * fixedRates.chatEmail).toFixed(2) || ""}</td>
             </tr>
             <tr>
               <td>Attorney/Management Services</td>
               <td>${invoiceFields.attyRelHrs || ""}</td>
               <td>${Math.round(calculateCategory("attyRel") * (Number.parseFloat(invoiceFields.attyRelHrs) || 0)) || ""}</td>
               <td>$${fixedRates.attyRel.toFixed(2)}</td>
-              <td>$${Math.round((Number.parseFloat(invoiceFields.attyRelHrs) || 0) * fixedRates.attyRel) || ""}</td>
+              <td>$${((Number.parseFloat(invoiceFields.attyRelHrs) || 0) * fixedRates.attyRel).toFixed(2) || ""}</td>
             </tr>
             <tr>
               <td>Book keeping</td>
               <td>${invoiceFields.bookkeepingHrs || ""}</td>
               <td></td>
               <td>$${fixedRates.bookkeeping.toFixed(2)}</td>
-              <td>$${Math.round((Number.parseFloat(invoiceFields.bookkeepingHrs) || 0) * fixedRates.bookkeeping) || ""}</td>
+              <td>$${((Number.parseFloat(invoiceFields.bookkeepingHrs) || 0) * fixedRates.bookkeeping).toFixed(2) || ""}</td>
             </tr>
             <tr>
               <td>Administrative</td>
               <td>${invoiceFields.administrativeHrs || ""}</td>
               <td></td>
               <td>$${fixedRates.administrative.toFixed(2)}</td>
-              <td>$${Math.round((Number.parseFloat(invoiceFields.administrativeHrs) || 0) * fixedRates.administrative) || ""}</td>
+              <td>$${((Number.parseFloat(invoiceFields.administrativeHrs) || 0) * fixedRates.administrative).toFixed(2) || ""}</td>
             </tr>
             <tr>
               <td></td>
@@ -616,13 +616,13 @@ export default function WISERApp() {
               <td>Uploading Certificates</td>
               <td>${monthlyActuals.exp || ""}</td>
               <td>$${fixedRates.uploadingCert.toFixed(2)}</td>
-              <td>$${Math.round((Number.parseFloat(monthlyActuals.exp) || 0) * fixedRates.uploadingCert) || ""}</td>
+              <td>$${((Number.parseFloat(monthlyActuals.exp) || 0) * fixedRates.uploadingCert).toFixed(2) || ""}</td>
             </tr>
             <tr>
               <td>Fax Certificates</td>
               <td>${monthlyActuals.fax || ""}</td>
               <td>$${fixedRates.faxCert.toFixed(2)}</td>
-              <td>$${Math.round((Number.parseFloat(monthlyActuals.fax) || 0) * fixedRates.faxCert) || ""}</td>
+              <td>$${((Number.parseFloat(monthlyActuals.fax) || 0) * fixedRates.faxCert).toFixed(2) || ""}</td>
             </tr>
             <tr>
               <td></td>
@@ -901,7 +901,7 @@ export default function WISERApp() {
                   />
                   <div>{rate.toFixed(2)}</div>
                   <div>{Math.round(callsChat)}</div>
-                  <div>{Math.round(amount)}</div>
+                  <div>{amount.toFixed(2)}</div>
                   <div>{agents}</div>
                 </div>
               )
@@ -936,7 +936,7 @@ export default function WISERApp() {
               <Input type="number" placeholder="0" value={monthlyActuals.exp} readOnly className="bg-gray-100" />
               <div>{fixedRates.uploadingCert.toFixed(2)}</div>
               <div></div>
-              <div>{Math.round((Number.parseFloat(monthlyActuals.exp) || 0) * fixedRates.uploadingCert)}</div>
+              <div>{((Number.parseFloat(monthlyActuals.exp) || 0) * fixedRates.uploadingCert).toFixed(2)}</div>
               <div></div>
             </div>
 
@@ -945,7 +945,7 @@ export default function WISERApp() {
               <Input type="number" placeholder="0" value={monthlyActuals.fax} readOnly className="bg-gray-100" />
               <div>{fixedRates.faxCert.toFixed(2)}</div>
               <div></div>
-              <div>{Math.round((Number.parseFloat(monthlyActuals.fax) || 0) * fixedRates.faxCert)}</div>
+              <div>{((Number.parseFloat(monthlyActuals.fax) || 0) * fixedRates.faxCert).toFixed(2)}</div>
               <div></div>
             </div>
 
